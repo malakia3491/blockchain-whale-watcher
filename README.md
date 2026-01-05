@@ -4,6 +4,7 @@ An asynchronous, production-ready Python service that monitors the Ethereum bloc
 
 Built with a focus on **fault tolerance**, **data integrity**, and **clean architecture**.
 
+Architecture is blockchain-agnostic and can be easily adapted for Solana.
 ---
 
 ## Key Features
