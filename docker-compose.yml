@@ -1,0 +1,26 @@
+services:
+  my-bot:
+    build: .
+    container_name: blockchain_bot
+    restart: always
+    depends_on:
+      - db_postgres
+    volumes:
+      - ./ini.prod.conf:/app/ini.conf
+      - ./alembic.prod.ini:/app/alembic.ini
+    environment:
+      - PYTHONUNBUFFERED=1
+
+  db_postgres:
+    image: postgres:17-alpine
+    container_name: my_postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345
+      POSTGRES_DB: whale_db
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+volumes:
+  pg_data:
